@@ -42,14 +42,14 @@ const Skills = () => {
     item2 : [python, "Python Development"],
     item3 : [node, "Node JS"],
     item4 : [react, "React JS"],
-    item4 : [express, "Express JS"],
-    item5 : [mongo, "MongoDB"],
-    item6 : [mysql, "MySQL"],
-    item7 : [debian, "Linux"],
-    item8 : [laravel, "Laravel"],
-    item9 : [php, "PHP"],
-    item10 : [aws,"AWS"],
-    item11 : [nginx, "Nginx"]
+    item5 : [express, "Express JS"],
+    item6 : [mongo, "MongoDB"],
+    item7 : [mysql, "MySQL"],
+    item8 : [debian, "Linux"],
+    item9 : [laravel, "Laravel"],
+    item10 : [php, "PHP"],
+    item11 : [aws,"AWS"],
+    item12 : [nginx, "Nginx"]
   }
 
   return (
