@@ -385,21 +385,28 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   z-index: 0;
 }
 .project .nav.nav-pills .nav-link::before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 100%;
-    background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: 0.3s ease-in-out;
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: 0.3s ease-in-out;
 }
+
+@media screen and (max-width: 450px) {
+  .project .nav .nav-link.nav-text {
+    font-size: 12px;
+  }
+}
+
 .project .nav.nav-pills .nav-link.active::before {
-    width: 100% !important;
+  width: 100% !important;
 }
 .project .nav.nav-pills .nav-link.active {
-    border: 1px solid rgba(255, 255, 255, 1);
+  border: 1px solid rgba(255, 255, 255, 1);
 }
 .nav-link#projects-tabs-tab-first {
   border: 1px solid rgba(255, 255, 255, 0.5);
@@ -550,6 +557,20 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin-right: 10px; /* Add some spacing between the image and text */
 }
 
+@media (max-width: 768px) {
+  .about-container .about-img {
+    width: clamp(10rem, 50%, 30rem);
+    height: clamp(14rem,2.3vh,38rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .about-container .about-img {
+    width: clamp(8rem, 50%, 25rem);
+    height: clamp(12rem,2.3vh,35rem);
+  }
+}
+
 .about-container .myself {
   font-size: clamp(12px,2vw,25px);
   text-align: justify;
@@ -632,4 +653,8 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   color: #B8B8B8;
   letter-spacing: 0.5px;
   margin-top: 20px;
+}
+.xl-font {
+  font-weight: 500;
+  font-size: 4vw;
 }
