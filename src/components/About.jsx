@@ -1,4 +1,3 @@
-import { Container } from 'react-bootstrap';
 import myImg from '../assets/img/my-img.jpg';
 
 const About = () => {

@@ -8,6 +8,8 @@ import TimelineDot from '@mui/lab/TimelineDot';
 import { Typography } from '@mui/material';
 import TimelineOppositeContent, { timelineOppositeContentClasses } from '@mui/lab/TimelineOppositeContent';
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 export default function EducationTimeLine() {
 
@@ -25,41 +27,52 @@ export default function EducationTimeLine() {
   ]
 
   const EduTimeline = ({ university, duration, major }) => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     return (
       <TimelineItem>
-        <TimelineOppositeContent variant='body2' sx={{ m: 'auto 0' }}>
-          {duration}
-        </TimelineOppositeContent>
+        {!isMobile && (
+          <TimelineOppositeContent variant='body2' sx={{ m: 'auto 0' }}>
+            {duration}
+          </TimelineOppositeContent>
+        )}
         <TimelineSeparator>
-          <TimelineDot >
+          <TimelineDot>
             <SchoolOutlinedIcon color='success'/>
           </TimelineDot>
           <TimelineConnector />
         </TimelineSeparator>
-        <TimelineContent>
-          <Typography component="span">
+        <TimelineContent sx={{ py: '12px', px: 2 }}>
+          {isMobile && (
+            <Typography variant='body2' color='textSecondary'>
+              {duration}
+            </Typography>
+          )}
+          <Typography variant='h6' component="span">
             {major}
           </Typography>
-          <Typography component="div" variant='body1'>
-            {university}
-          </Typography>
+          <Typography>{university}</Typography>
         </TimelineContent>
       </TimelineItem>
     )
   }
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <Timeline
+      
       sx={{
-        [`& .${timelineOppositeContentClasses}`]: {
-          flex: 0.2,
+        [`& .${timelineOppositeContentClasses.root}`]: {
+          flex: isMobile ? 0 : 0.2,
         },
       }}
     >
-      {
-        education.map((edu, index) => <EduTimeline {...edu} key={index} />)
-      }
+      {education.map((edu, index) => (
+        <EduTimeline {...edu} key={index} />
+      ))}
     </Timeline>
   );
 }

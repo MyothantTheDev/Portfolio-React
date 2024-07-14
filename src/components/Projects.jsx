@@ -54,15 +54,15 @@ const Projects = () => {
               My Side Projects and Freelance Works.
             </p>
             <Tab.Container id='projects-tabs' defaultActiveKey="first">
-              <Nav variant="pills" className='nav-pills mb-5 justify-content-center align-items-center' id='pills-tab'>
+              <Nav variant="pills" className='nav-pills mb-5 justify-content-center align-items-center' id='pills-tab' >
                 <Nav.Item>
-                  <Nav.Link eventKey="first">Projects</Nav.Link>
+                  <Nav.Link className='nav-text' eventKey="first">Projects</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="second">Experience</Nav.Link>
+                  <Nav.Link className='nav-text' eventKey="second">Experience</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="third">
+                  <Nav.Link className='nav-text' eventKey="third">
                     About Me
                   </Nav.Link>
                 </Nav.Item>

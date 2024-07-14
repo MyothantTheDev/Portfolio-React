@@ -10,9 +10,12 @@ import LaptopMacIcon from '@mui/icons-material/LaptopMac';
 import OfflineBoltOutlinedIcon from '@mui/icons-material/OfflineBoltOutlined';
 import Typography from '@mui/material/Typography';
 import { List, ListItem } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 export default function CustomizedTimeline() {
-
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const Experiencs = [
     {
@@ -61,34 +64,39 @@ export default function CustomizedTimeline() {
     },
   ]
 
-
   const TimeLineItems = ({job}) => {
-
     return (
       <TimelineItem>
-        <TimelineOppositeContent
-          sx={{ m: 'auto 0' }}
-          align="right"
-          variant="body2"
-        >
-          {job.period}
-        </TimelineOppositeContent>
+        {!isMobile && (
+          <TimelineOppositeContent
+            sx={{ m: 'auto 0' }}
+            align="right"
+            variant="body2"
+          >
+            {job.period}
+          </TimelineOppositeContent>
+        )}
         <TimelineSeparator>
           <TimelineConnector />
           <TimelineDot color={job.color ? job.color : 'grey' } variant='outlined'>
-          {job.icon}
+            {job.icon}
           </TimelineDot>
           <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent sx={{ py: '12px', px: 2 }}>
+          {isMobile && (
+            <Typography variant="body2" color="textSecondary">
+              {job.period}
+            </Typography>
+          )}
           <Typography variant="h6" component="span">
             {job.position}
           </Typography>
           <Typography variant="body1" component="div">
             <List sx={{listStyleType: 'disc'}}>
-              {
-                job.task.map((value, index) => <ListItem sx={{display: 'list-item'}} key={index}>{value}</ListItem>)
-              }
+              {job.task.map((value, index) => (
+                <ListItem sx={{display: 'list-item'}} key={index}>{value}</ListItem>
+              ))}
             </List>
           </Typography>
         </TimelineContent>
@@ -97,10 +105,10 @@ export default function CustomizedTimeline() {
   }
 
   return (
-    <Timeline position="alternate">
-      {
-        Experiencs.map((value, index) => <TimeLineItems job={value} key={index}/>)
-      }
+    <Timeline position={isMobile ? "left" : "alternate"}>
+      {Experiencs.map((value, index) => (
+        <TimeLineItems job={value} key={index}/>
+      ))}
     </Timeline>
   );
 }

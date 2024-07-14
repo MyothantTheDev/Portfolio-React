@@ -54,7 +54,8 @@ const Banner = () => {
         <Row className="align-items-center">
           <Col xs={12} md={6} xl={7}>
             <span className="tagline">Welcome to my Portfolio</span>
-            <h1>{`Hi I'm Myo Thant`}<span>&nbsp;{text}</span></h1>
+            <h1>Hi I'm Myo Thant</h1>
+            <h2>{text}</h2>
             <p>
               Enthusiastic Fullstack Web Developer with 3 years of experience and a strong knowledge of front-end development, 
               and back-end development is seeking a position that will utilize my knowledge and above mentioned skilled set in a growing organization.
